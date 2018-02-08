@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+html{
+	margin-bottom: 50px;
+}
+
+table{
+	margin-top: 30px;
+}
+
+</style>
+
+<script>
+function share(){
+	var codeEvitorValue = $("#editor").val();
+	var serialize = {{result|safe}};
+	var toStr = JSON.stringify(serialize);
+	$.ajax({
+	  	type: 'POST',
+	  	url: '/share/',
+	  	data: { 'code': codeEvitorValue, 'result': toStr },
+	  	success: function(data){
+	  		var code = data['share_code'];
+	  		var texto = $( '#link' ).attr('value', 'http://www.pylintonline.com/s/' + code);
+	  		$('#exampleModal').modal('show')	  	
+	  	} //success
+	});
+}
+</script>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+      	<p class="introduction">Copy this link</p>
+        <input type="text" id="link" class="form-control" disabled>
+      </div>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" style="border-radius:0px;">Close</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper">
+
+<img src="https://www.python.org/static/community_logos/python-logo-inkscape.svg" class="logo">
+
+<h1 class="result-title">Your result</h1>
+
+<button onclick="share()" href="#" class="btn-info">Share it</button>
+<button class="btn-success">Download as txt</button>
+
+<table class="table">
+<thead>
+<tr>
+  <th scope="col">Type</th>
+  <th scope="col">Line</th>
+  <th scope="col">Symbol</th>
+  <th scope="col">Message</th>
+</tr>
+</thead>
+<tbody>
+	{% for obj in result %}
+		<tr>
+			<td>{{obj.type}}</td>
+			<td>{{obj.line}}</td>
+			<td>{{obj.symbol}}</td>
+			<td>{{obj.message}}</td>
+		</tr>
+	{% endfor %}
+
+</tbody>
+</table>
+
+<form action="/check/" method="POST">{% csrf_token %}
+<textarea id="editor" name="code">{{code}}</textarea>
+<input type="submit" class="button btn btn-warning" value="Analyze again">
+</form>
+
+</div>
+
+{% endblock %}

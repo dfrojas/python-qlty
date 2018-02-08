@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="wrapper">
+
+<img src="https://www.python.org/static/community_logos/python-logo-inkscape.svg" class="logo">
+
+<p class="introduction">PylintOnline.com is the tool to analyze your Python code quickly and easy without install anything, doing use of <a href="http://www.pylint.org" target="_blank">Pylint.org</a>. Use it!!</p>
+
+	<form action="/check/" method="POST">{% csrf_token %}
+		<textarea id="editor" name="code"></textarea>
+		<input type="submit" class="button btn btn-warning" value="Analyze code in strict mode">
+	</form>
+
+</div>
+
+{% endblock %}

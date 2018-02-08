@@ -1,0 +1,53 @@
+html{
+    margin-bottom: 40px;
+}
+
+table{
+ font-family: 'Lato', sans-serif;
+ font-size: 16px;
+}
+
+.wrapper{
+	margin-right: auto;
+	margin-left: auto;
+	width: 1080px;
+}
+
+.logo{
+	display: block;
+    margin: 0 auto;
+    width: 300px;
+    margin-top: 40px;
+}
+
+.introduction{
+	font-family: 'Lato', sans-serif;
+	color: #999;
+	font-size: 18px;
+	text-align: center;
+	line-height: 1.9;
+}
+
+.CodeMirror {
+  border: 1px solid #eee;
+  width: 100%;
+}
+
+.button{
+	background-color: #ffd343;
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(10%,#ffdf76),color-stop(90%,#ffd343));
+    background-image: -webkit-linear-gradient(#ffdf76 10%,#ffd343 90%);
+    background-image: -moz-linear-gradient(#ffdf76 10%,#ffd343 90%);
+    background-image: -o-linear-gradient(#ffdf76 10%,#ffd343 90%);
+    background-image: linear-gradient(#ffdf76 10%,#ffd343 90%);
+    border-top: 1px solid #dca900;
+    border-right: 1px solid #dca900;
+    border-bottom: 1px solid #dca900;
+    border-left: 1px solid #dca900;
+    margin-top: 20px;
+}
+
+.result-title{
+    font-family: 'Lato', sans-serif;
+    color: #999;
+}

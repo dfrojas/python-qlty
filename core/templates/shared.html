@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="wrapper">
+
+<img src="https://www.python.org/static/community_logos/python-logo-inkscape.svg" class="logo">
+
+<table class="table">
+<thead>
+<tr>
+  <th scope="col">Type</th>
+  <th scope="col">Line</th>
+  <th scope="col">Symbol</th>
+  <th scope="col">Message</th>
+</tr>
+</thead>
+<tbody>
+	{% for obj in object.result %}
+		<tr>
+			<td>{{obj.type}}</td>
+			<td>{{obj.line}}</td>
+			<td>{{obj.symbol}}</td>
+			<td>{{obj.message}}</td>
+		</tr>
+	{% endfor %}
+
+</tbody>
+</table>
+
+<textarea id="editor" name="code">{{object.code}}</textarea>
+
+</div>
+
+{% endblock %}
