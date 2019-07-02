@@ -72,5 +72,4 @@ class SharedCode(DetailView):
 	slug_field = 'share_code'
 	slug_url_kwarg = 'share_code'
 
-
 # Add anything and another
