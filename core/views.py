@@ -73,4 +73,7 @@ class SharedCode(DetailView):
 	slug_url_kwarg = 'share_code'
 
 
-# Add anything and another
+# This is just a comment to try automation cards.
+# This is just a comment to try automation cards.
+# This is just a comment to try automation cards.
+# This is just a comment to try automation cards.
